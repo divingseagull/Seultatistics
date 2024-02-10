@@ -1,0 +1,14 @@
+{
+    "bot": {
+        "token": {
+            "storage_type": "SYS_ENV",
+            "path": "SEULTATISTICS_TOKEN"
+        },
+        "owner_ids": [
+            480977114980417538
+        ],
+        "available_server_ids": [
+            519811764481818625
+        ]
+    }
+}

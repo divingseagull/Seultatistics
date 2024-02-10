@@ -1,0 +1,14 @@
+{
+    "bot": {
+        "token": {
+            "storage_type": "SYS_ENV",  // Enum("SYS_ENV" | "FILE")
+            "path": "SEULTATISTICS_TOKEN" // str
+        },
+        "owner_ids": [
+            480977114980417538  // list[int]
+        ],
+        "available_server_ids": [
+            519811764481818625  // list[int]
+        ]
+    }
+}
