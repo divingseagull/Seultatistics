@@ -9,6 +9,26 @@
         ],
         "available_server_ids": [
             519811764481818625
+        ],
+        "log": {
+            "logging": true,
+            "path": "logs",
+            "filename": "%y-%m-%d",
+            "timestamp": "%m-%d %H:%M:%S",
+            "on_events": {
+                "on_ready": true,
+                "on_command": true,
+                "on_message": false,
+                "on_error": true
+            }
+        },
+        "command_prefix": "$"
+    },
+    "extensions": {
+        "disabled": [],
+        "not_extension": [
+            "src.utils.config",
+            "src.utils.logger"
         ]
     }
 }

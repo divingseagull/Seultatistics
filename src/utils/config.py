@@ -37,3 +37,11 @@ class Config:
     def get_available_server_ids(self) -> list[int]:
         available_ids = self.get_bot_config()['available_server_ids']
         return available_ids
+
+    def get_log_config(self):
+        log_config = self.get_bot_config()['log']
+        return log_config
+
+    def get_extension_config(self):
+        ext_config = self.__data["extensions"]
+        return ext_config

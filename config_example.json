@@ -1,14 +1,34 @@
 {
     "bot": {
         "token": {
-            "storage_type": "SYS_ENV",  // Enum("SYS_ENV" | "FILE")
-            "path": "SEULTATISTICS_TOKEN" // str
+            "storage_type": "SYS_ENV",    // Enum("SYS_ENV" | "FILE")
+            "path": "SEULTATISTICS_TOKEN" // str | PathLike[str]
         },
         "owner_ids": [
             480977114980417538  // list[int]
         ],
         "available_server_ids": [
             519811764481818625  // list[int]
+        ],
+        "log": {
+            "logging": true,
+            "path": "logs",                    // PathLike[str], must be a directory
+            "filename": "%y-%m-%d",            // str, format codes: https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes
+            "timestamp": "%y-%m-%d %H:%M:%S",  // str
+            "on_events": {
+                "on_ready": true,
+                "on_command": true,
+                "on_message": false,
+                "on_error": true
+            }
+        },
+        "command_prefix": "$"  // str
+    },
+    "extensions": {
+        "disabled": [],      // list[str], list of disabled extensions
+        "not_extension": [   // list[str]
+            "src.utils.config",
+            "src.utils.logger"
         ]
     }
 }
