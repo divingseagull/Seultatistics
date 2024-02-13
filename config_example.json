@@ -1,7 +1,7 @@
 {
     "bot": {
         "token": {
-            "storage_type": "SYS_ENV",    // Enum("SYS_ENV" | "FILE")
+            "storage_type": "SYS_ENV",    // Enum("SYS_ENV" | "TEXT_FILE")
             "path": "SEULTATISTICS_TOKEN" // str | PathLike[str]
         },
         "owner_ids": [
@@ -28,7 +28,13 @@
         "disabled": [],      // list[str], list of disabled extensions
         "not_extension": [   // list[str]
             "src.utils.config",
-            "src.utils.logger"
+            "src.utils.logger",
+            "src.utils.gdrive"
         ]
+    },
+    "data_collector": {
+        "storage_type": "LOCAL",        // Enum("LOCAL" | "GDRIVE")
+        "directory": "collected_data",  // PathLike[str]
+        "client_id_json_path": null     // PathLike[str] | None
     }
 }

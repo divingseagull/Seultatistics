@@ -1,5 +1,7 @@
 from nextcord.ext import commands
-from ..core.bot import bot
+
+from ..core.bot import logger
+from ..utils.logger import LogLevel
 
 
 class CoreExtensionManager(commands.Cog):
@@ -12,18 +14,21 @@ class CoreExtensionManager(commands.Cog):
 
     @extension_.command(name='load')
     async def extension_load(self, ctx: commands.Context, extension: str):
-        bot.load_extension(extension)
-        await ctx.send(f'Extension loaded: `{extension}`')
+        self.bot.load_extension(extension, package="src")
+        logger.write(f"Extension loaded: src{extension}", log_level=LogLevel.INFO)
+        await ctx.send(f'Extension loaded: `src{extension}`')
 
     @extension_.command(name='unload')
     async def extension_unload(self, ctx: commands.Context, extension: str):
-        bot.unload_extension(extension)
-        await ctx.send(f'Extension unloaded: `{extension}`')
+        self.bot.unload_extension(extension, package="src")
+        logger.write(f"Extension unloaded: src{extension}", log_level=LogLevel.INFO)
+        await ctx.send(f'Extension unloaded: `src{extension}`')
 
     @extension_.command(name='reload')
     async def extension_reload(self, ctx: commands.Context, extension: str):
-        bot.reload_extension(extension)
-        await ctx.send(f'Extension reloaded: `{extension}`')
+        self.bot.reload_extension(extension, package="src")
+        logger.write(f"Extension reloaded: src{extension}", log_level=LogLevel.INFO)
+        await ctx.send(f'Extension reloaded: `src{extension}`')
 
     @extension_.command(name='list')
     async def extension_list(self, ctx: commands.Context):

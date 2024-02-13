@@ -10,15 +10,15 @@ class LogLevel(Enum):
 
 
 class Event(Enum):
-    ON_READY = "on_ready",
-    ON_COMMAND = "on_command",
-    ON_MESSAGE = "on_message",
+    ON_READY = "on_ready"
+    ON_COMMAND = "on_command"
+    ON_MESSAGE = "on_message"
     ON_ERROR = "on_error"
 
 
 class Logger:
-    def __init__(self, configs: dict, encoding: str = "utf-8"):
-        self.log_config = configs
+    def __init__(self, config: dict, encoding: str = "utf-8"):
+        self.log_config = config
         self.log_config["encoding"] = encoding
 
         filename = datetime.datetime.now().strftime(self.log_config['filename'])

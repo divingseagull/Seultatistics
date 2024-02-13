@@ -28,7 +28,13 @@
         "disabled": [],
         "not_extension": [
             "src.utils.config",
-            "src.utils.logger"
+            "src.utils.logger",
+            "src.utils.gdrive"
         ]
+    },
+    "data_collector": {
+        "storage_type": "LOCAL",
+        "directory": "collected_data",
+        "client_id_json_path": null
     }
 }

@@ -1,2 +1,13 @@
 src.utils.logger.py
     read 메서드 구현
+
+src.utils.gdrive.py
+    구글 드라이브에 데이터 업로드 구현
+
+src.data_collector.messages.py
+    store_data()
+        구글 드라이브에 파일 업로드 구현
+    convert_history_to_json()
+        기본값인 값 제거해 최적화
+    fetch_messages
+        channel 파라미터가 str 타입으로 들어가는 문제
