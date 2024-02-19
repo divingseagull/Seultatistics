@@ -1,0 +1,9 @@
+token_env="SEULTATISTICS_TOKEN"
+
+[logging]
+filename="log"
+
+[extension]
+not_extension=[
+    "src/bot/core"
+]
