@@ -1,8 +1,4 @@
-config.json
 /.idea/
 /.venv/
+/venv/
 src/__pycache__
-src/core/__pycache__
-src/utils/__pycache__
-logs/*
-collected_data/*

@@ -1,1 +1,1 @@
-python3 -m src.core.bot
+python3 -m src.bot.core
