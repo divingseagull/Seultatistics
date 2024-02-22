@@ -10,10 +10,11 @@ from ..utils.config import get_config
 
 
 bot = commands.Bot(
-    command_prefix="?",  # 명령어 접두사
-    intents=discord.Intents.default()
+    command_prefix="$",  # 명령어 접두사
+    intents=discord.Intents.all(),
+    owner=get_config()['owner_ids']
 )
-handler = logging.FileHandler(get_config()['logging']['filename'], 'a')
+handler = logging.FileHandler(get_config()['logging']['filename'])
 
 
 def _get_token() -> str:
@@ -23,7 +24,7 @@ def _get_token() -> str:
 def _get_core_extensions() -> list[str]:
     core_extensions = []
 
-    for (dirpath, _, filenames) in os.walk("src.bot"):
+    for (dirpath, _, filenames) in os.walk("src/bot"):
         dirpath: str
 
         if dirpath.endswith("__pycache__"):
@@ -39,17 +40,25 @@ def _get_core_extensions() -> list[str]:
             if f"{dirpath}/{filename}" in get_config()['extension']['not_extension']:
                 continue
 
-            core_extensions.append(f"{dirpath}/{filename}")
+            core_extensions.append(f"{dirpath}/{filename}".replace('/', '.'))
 
     return core_extensions
 
 
-@bot.command(name='ping')
-async def ping(ctx: commands.Context):
-    await ctx.send("pong!")
+class Core(commands.Cog):
+    def __init__(self, bot: commands.Bot):
+        self.bot = bot
+
+    @commands.command(name='ping')
+    async def ping(self, ctx: commands.Context):
+        await ctx.send("pong!")
 
 
-@bot.event
+async def setup(bot: commands.Bot):
+    await bot.add_cog(Core(bot))
+
+
+@bot.listen()
 async def on_ready():
     core_extensions = _get_core_extensions()
     for extension in core_extensions:

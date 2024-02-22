@@ -1,9 +1,13 @@
 token_env="SEULTATISTICS_TOKEN"
+owner_ids = []
 
 [logging]
 filename="log"
 
 [extension]
-not_extension=[
-    "src/bot/core"
+not_extension=[  # modules in src/utils will not be loaded.
+
 ]
+
+[data]
+directory="data"
